@@ -12,6 +12,9 @@ classifiers = [
     "Development Status :: 4 - Beta",
     "Topic :: Software Development :: Libraries :: Python Modules"
 ]
+# Distribution name is "pydo-anupdeka" (fork) but the importable package is
+# still "pydo" under src/, so Poetry needs this explicit mapping.
+packages = [{ include = "pydo", from = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.8.0"
