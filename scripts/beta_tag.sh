@@ -27,9 +27,8 @@ if ! git ls-remote --exit-code "$ORIGIN" >/dev/null 2>&1; then
 fi
 
 # Get base version from pyproject.toml (the current/target GA version).
-# `poetry version` prints "pydo X.Y.Z"; strip the leading "pydo ".
-poetry_version=$(poetry version)
-base_version="${poetry_version:5}"
+# `poetry version --short` prints just "X.Y.Z" regardless of the package name.
+base_version=$(poetry version --short)
 if [ -z "$base_version" ]; then
   echo "Error: Could not determine version from pyproject.toml"
   exit 1
