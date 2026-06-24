@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pydo"
+name = "pydo-anupdeka"
 version = "0.37.0"
 description = "The official client for interacting with the DigitalOcean API"
 authors = ["API Engineering <api-engineering@digitalocean.com>"]

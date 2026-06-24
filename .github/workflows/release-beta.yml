@@ -97,10 +97,10 @@ jobs:
           path: dist/
 
       - name: Publish
-        # Only publish to PyPI from the canonical upstream repo. On forks this
-        # step is skipped so a beta tag just builds and creates the draft
-        # GitHub pre-release without needing a PyPI token.
-        if: github.repository == 'digitalocean/pydo'
+        # Publish to PyPI from this fork (package renamed to "pydo-anupdeka" so
+        # it does not collide with the upstream "pydo" project). Requires a
+        # PYPI_TOKEN secret on the fork scoped to the pydo-anupdeka project.
+        if: github.repository == 'anup-deka/pydo'
         run: poetry publish
         env:
           POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
