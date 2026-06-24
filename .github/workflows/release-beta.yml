@@ -110,6 +110,12 @@ jobs:
 
     needs: build-and-publish
 
+    # Creating a GitHub release requires write access to repo contents. The
+    # default GITHUB_TOKEN is read-only on forks, which otherwise fails the
+    # "Create release" step with HTTP 403.
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2.5.0
